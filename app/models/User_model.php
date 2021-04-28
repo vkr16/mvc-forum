@@ -76,4 +76,10 @@ class User_model {
         return $this->db->single();
     }
 
+    public function getTop()
+    {
+        $this->db->query('SELECT * FROM users LIMIT 3 ORDER BY points ASC');
+        $this->db->resultSet();
+        var_dump($this->db->resultSet());
+    }
 }

@@ -5,6 +5,8 @@ class Dashboard extends Controller {
 	{
 		$this->model('User_model')->isLoggedOut();
 		$data = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
+		// $this->model('User_model')->getTop();
+
 		$data['title'] = "Dashboard";
 		$this->view('template/header',$data);
 		$this->view('template/nav-inside');	
