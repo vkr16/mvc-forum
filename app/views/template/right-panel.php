@@ -2,12 +2,12 @@
 		<div class="card p-3">
 			<div class="row">
 				<div class="col-md-4">
-					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/<?=$data['photo']?>" width="80px" height="80px">
+					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/<?=$data['user']['photo']?>" width="80px" height="80px">
 				</div>
 				<div class="col-md-8">
 					<h5 class="text-primary"><?= $_SESSION['UserLoggedIn']?></h5><hr>
-					<h6 class="card-subtitle text-muted">Rank : <span class="text-info"><?=$data['rank']?></span></h6>
-					<small>User points : <?=$data['points']?> pts</small>
+					<h6 class="card-subtitle text-muted">Rank : <span class="text-info"><?=$data['user']['rank']?></span></h6>
+					<small>User points : <?=$data['user']['points']?> pts</small>
 				</div>
 			</div>
 		</div>
@@ -18,16 +18,18 @@
 			<hr>
 
 			<!-- candidates -->
-			<div class="d-flex justify-content-between mx-2 mb-2">
-				<div>
-					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr1.jpeg" width="30px" height="30px">
-					&nbsp; <small>GajahYanaAprilia</small>
+			<?php for ($i=0; $i < $data['count'] ; $i++) { ?>
+				<div class="d-flex justify-content-between mx-2 mb-2">
+					<div>
+						<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/<?=$data['top10'][$i]['photo']?>" width="30px" height="30px">
+						&nbsp; <small><?=$data['top10'][$i]['username']?></small>
+					</div>
+					<div>
+						<small><?=$data['top10'][$i]['points']?> pts</small>
+					</div>
 				</div>
-				<div>
-					<small>1567 pts</small>
-				</div>
-			</div>
-
+			<?php } ?>
+<!-- 
 			<div class="d-flex justify-content-between mx-2 mb-2">
 				<div>
 					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr2.jpeg" width="30px" height="30px">
@@ -116,7 +118,7 @@
 				<div>
 					<small>666 pts</small>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 	</div>

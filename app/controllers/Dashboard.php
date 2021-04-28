@@ -4,8 +4,10 @@ class Dashboard extends Controller {
 	public function index()
 	{
 		$this->model('User_model')->isLoggedOut();
-		$data = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
-		// $this->model('User_model')->getTop();
+		$data['user'] = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
+		$data['top10'] = $this->model('User_model')->getTop();
+
+		$data['count'] = count($data['top10']);
 
 		$data['title'] = "Dashboard";
 		$this->view('template/header',$data);
