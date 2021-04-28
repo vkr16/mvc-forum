@@ -23,7 +23,7 @@ a.deco-none{
 }
 
 #notification-slot{
-	width: 400px;
+	width: 450px;
 	overflow-y: auto;
 	max-height: 500px;
 }

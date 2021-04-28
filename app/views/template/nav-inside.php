@@ -33,10 +33,15 @@
               <div>
                 <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
               </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
+              <div class="col-md-10">
+                <small><strong>Kaveen99</strong> </small><br>
+                <small>commented on your post</small>
+                <small class="text-muted">"I just finished installing..."</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
               </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+              <small class="text-primary">Today at 16:43</small>
             </div>
           </div>
         </a>
@@ -48,10 +53,15 @@
               <div>
                 <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
               </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
+              <div class="col-md-10">
+                <small><strong>Kaveen99</strong> </small><br>
+                <small>commented on your post</small>
+                <small class="text-muted">"I just finished installing..."</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
               </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+              <small class="text-primary">Today at 16:43</small>
             </div>
           </div>
         </a>
@@ -63,10 +73,15 @@
               <div>
                 <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
               </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
+              <div class="col-md-10">
+                <small><strong>Kaveen99</strong> </small><br>
+                <small>commented on your post</small>
+                <small class="text-muted">"I just finished installing..."</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
               </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+              <small class="text-primary">Today at 16:43</small>
             </div>
           </div>
         </a>
@@ -78,55 +93,35 @@
               <div>
                 <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
               </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
+              <div class="col-md-10">
+                <small><strong>Kaveen99</strong> </small><br>
+                <small>commented on your post</small>
+                <small class="text-muted">"I just finished installing..."</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
               </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+              <small class="text-primary">Today at 16:43</small>
             </div>
           </div>
         </a>
         <!-- sample notification end -->
-         <!-- sample notification -->
+        <!-- sample notification -->
           <a href="#kepostingan" class="deco-none text-dark">
             <div class="alert alert-info p-1">
             <div class="row mx-1 d-flex justify-content-left align-items-center">
               <div>
                 <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
               </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
+              <div class="col-md-10">
+                <small><strong>Kaveen99</strong> </small><br>
+                <small>commented on your post</small>
+                <small class="text-muted">"I just finished installing..."</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
               </div>
             </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
-         <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
-              </div>
-            </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
-         <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div>
-                <small><strong>Kaveen99</strong> </small>
-                <small>commented on your post <br>"Can you lead me through the installation prog...."</small>
-              </div>
+            <div class="col-md-12 d-flex justify-content-end align-items-center">
+              <small class="text-primary">Today at 16:43</small>
             </div>
           </div>
         </a>
