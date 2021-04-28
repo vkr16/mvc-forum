@@ -1,0 +1,6 @@
+body{
+	background-image: url('../img/wave.jpg');
+	background-repeat: none;
+	background-attachment: fixed;
+	background-size: cover;
+}
