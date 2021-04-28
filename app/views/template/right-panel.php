@@ -2,12 +2,12 @@
 		<div class="card p-3">
 			<div class="row">
 				<div class="col-md-4">
-					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/user.jpg" width="80px" height="80px">
+					<img class="rounded-circle" src="<?= ROOTURL ?>/public/assets/img/profile-img/<?=$data['photo']?>" width="80px" height="80px">
 				</div>
 				<div class="col-md-8">
-					<h5 class="text-primary">PisangBenyek</h5><hr>
-					<h6 class="card-subtitle text-muted">Rank : <span class="text-info">Professional</span></h6>
-					<small>User points : 658 pts</small>
+					<h5 class="text-primary"><?= $_SESSION['UserLoggedIn']?></h5><hr>
+					<h6 class="card-subtitle text-muted">Rank : <span class="text-info"><?=$data['rank']?></span></h6>
+					<small>User points : <?=$data['points']?> pts</small>
 				</div>
 			</div>
 		</div>

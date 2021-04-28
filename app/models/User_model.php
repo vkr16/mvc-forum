@@ -68,4 +68,12 @@ class User_model {
         }
     }
 
+    public function getUserData($data)
+    {
+        $username = $_SESSION['UserLoggedIn'];
+        $this->db->query('SELECT * FROM users WHERE username=:username');
+        $this->db->bind('username',$username);
+        return $this->db->single();
+    }
+
 }
