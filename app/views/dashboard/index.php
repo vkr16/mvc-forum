@@ -2,15 +2,29 @@
 	<div class="col-md-7">
 		<div class="card">
 			<div class="card-body">
-				<form>
+				<form action="dashboard/submitPost" method="post">
+					<input type="text" name="ownerid" hidden value="<?=$_SESSION['UserLoggedIn'] ?>"> 
 					<div class="form-group">
 					    <h3 for="FormControlTextarea1" class="mb-4">#JustAsk</h3>
-					    <textarea id="post-field" class="form-control" id="FormControlTextarea1" rows="3" placeholder="Any Question?"></textarea>
+					    <textarea required="" name="postfield" id="post-field" class="form-control" id="FormControlTextarea1" rows="3" placeholder="Any Question?"></textarea>
 					</div>
-					<div class="form-group mt-3">
-						<button type="submit" name="post" class="btn btn-info">
-							Post &nbsp;<i class="fas fa-paper-plane"></i>
-						</button> 
+					<div class="row mx-auto">
+						<div class="form-group mt-3 mr-3">
+							<select class="custom-select" name="category">
+							  <option value="General">Select category&emsp;(Default : General)</option>
+							  <option value="Programming">Programming</option>
+							  <option value="Gaming">Gaming</option>
+							  <option value="Music">Music</option>
+							  <option value="Movie">Movie</option>
+							  <option value="Book">Book</option>
+							  <option value="Art">Art</option>
+							</select>
+						</div>
+						<div class="form-group mt-3">
+							<button type="submit" name="post" class="btn btn-info">
+								Post &nbsp;<i class="fas fa-paper-plane"></i>
+							</button> 
+						</div>
 					</div>
 				</form>
 			</div>

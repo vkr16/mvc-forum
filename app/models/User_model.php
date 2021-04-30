@@ -81,4 +81,5 @@ class User_model {
         $this->db->query('SELECT * FROM users ORDER BY points DESC LIMIT 10 ');
         return $this->db->resultSet();
     }
+
 }

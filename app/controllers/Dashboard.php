@@ -18,4 +18,15 @@ class Dashboard extends Controller {
 		$this->view('template/footer');
 		
 	}
+
+
+	public function submitPost()
+	{	
+		$userData = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
+		$owner = $userData['id'];
+		// var_dump($UserId);
+		if ($this->model('Post_model')->storePost($_POST,$owner) > 0) {
+			header('Location:'.ROOTURL.'/dashboard');
+		}
+	}
 }

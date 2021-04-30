@@ -16,4 +16,5 @@ class Post extends Controller {
 		$this->view('template/right-panel',$data);
 		$this->view('template/footer');
 	}
+
 }
