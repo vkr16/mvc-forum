@@ -4,7 +4,7 @@
 			<h5 class="card-title mx-3 mt-3 mb-0"><i class="fas fa-th fa-fw"></i>&nbsp;Category</h5><hr class="mt-3 mb-0">
 			<ul class="nav flex-column">
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info active" href="<?=ROOTURL?>/dashboard/index/All Category"><i class="fas fa-asterisk fa-fw"></i>&nbsp;All category</a></small>
+			    <small><a class="nav-link text-info active" href="<?=ROOTURL?>/dashboard/index/All"><i class="fas fa-asterisk fa-fw"></i>&nbsp;All category</a></small>
 			  </li>
 
 			  <li class="nav-item">

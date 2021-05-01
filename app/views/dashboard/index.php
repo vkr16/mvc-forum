@@ -2,7 +2,7 @@
 	<div class="col-md-7">
 		<div class="card">
 			<div class="card-body">
-				<form action="dashboard/submitPost" method="post">
+				<form action="<?=ROOTURL ?>/dashboard/submitPost" method="post">
 					<input type="text" name="ownerid" hidden value="<?=$_SESSION['UserLoggedIn'] ?>"> 
 					<div class="form-group">
 					    <h3 for="FormControlTextarea1" class="mb-4">#JustAsk</h3>
@@ -32,7 +32,7 @@
 		<hr>
 		<div class="card">
 			<div class="card-body">
-				<small>&nbsp;Category : <span class="text-info"><i class="<?= $data['logo'] ?> fa-fw"></i> <?= $data['category'] ?></span></small>
+				<small>&nbsp;Category : <span class="text-info"><i class="<?= $data['logo'] ?> fa-fw"></i> <?= $data['categoryshow'] ?></span></small>
 			</div>
 		</div>
 		<hr>
@@ -67,12 +67,13 @@
 		<?php endforeach ?>
 		<!-- Sample content end -->
 				
-			<div class="d-flex justify-content-center mb-4">
-				<button class="btn btn-light btn-lg">
+			<div id="Load" class="d-flex justify-content-center mb-4" style="visibility: <?= $data['visib'] ?>;">
+				<a href="<?= ROOTURL.'/dashboard/index/'.$data['category']?>/<?php echo $data['rows'] += 2 ?>#Load" class="btn btn-light btn-lg">
 					<small class="text-secondary">
+
 					<i class="fas fa-angle-double-down"></i> Load More <i class="fas fa-angle-double-down"></i>
 					</small>
-				</button>
+				</a>
 			</div>
 		
 

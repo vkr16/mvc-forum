@@ -25,7 +25,7 @@ class Post_model
 	public function getCategoryLogo($data)
 	{
 		switch ($data) {
-			case 'All Category':
+			case 'All':
 				return 'fas fa-asterisk';
 				break;
 			
@@ -59,36 +59,41 @@ class Post_model
 		}
 	}
 
-	public function getAllPost()
+	public function getAllPost($rows)
 	{
-		$this->db->query('SELECT * FROM posts ORDER BY id DESC');
+		// var_dump($data);
+
+		$this->db->query('SELECT * FROM posts ORDER BY id DESC LIMIT '.$rows);
+		$this->db->bind('rows',$rows);
+		$this->db->execute();
 		$result = $this->db->resultSet();
-		$total  = $this->db->rowCount();
 		
 		return $result;
 	}
 
-	public function countAllPost()
+	public function countAllPost($rows)
 	{
-		$this->db->query('SELECT * FROM posts');
+		// var_dump($rows);
+		$this->db->query('SELECT * FROM posts LIMIT '.$rows);
+		$this->db->bind('rows',$rows);
 		$this->db->execute();
 		$total  = $this->db->rowCount();
 		
 		return $total;
 	}
 
-	public function getPostByCategory($category)
+	public function getPostByCategory($category,$rows)
 	{
-		$this->db->query('SELECT * FROM posts WHERE category=:category ORDER BY id DESC');
+		$this->db->query('SELECT * FROM posts WHERE category=:category ORDER BY id DESC LIMIT '.$rows);
 		$this->db->bind('category',$category);
 		$result = $this->db->resultSet();
 		
 		return $result;
 	}
 
-	public function countPostByCategory($category)
+	public function countPostByCategory($category,$rows)
 	{
-		$this->db->query('SELECT * FROM posts WHERE category=:category');
+		$this->db->query('SELECT * FROM posts WHERE category=:category LIMIT '.$rows);
 		$this->db->bind('category',$category);
 		$this->db->execute();
 		$total  = $this->db->rowCount();

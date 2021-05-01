@@ -1,10 +1,12 @@
 <?php 
 
 class Dashboard extends Controller {
-	public function index($category = 'All Category')
+	public function index($category = 'All',$rows = 2)
 	{	
+		$data['rows']=$rows;
+		// var_dump($data['rows']);
 		switch ($category) {
-			case 'All Category':
+			case 'All':
 				break;
 
 			case 'General':
@@ -38,13 +40,23 @@ class Dashboard extends Controller {
 
 		$data['count'] = count($data['top10']);
 
-		$data['category']=$category;
+		if ($category == 'All') {
+			$data['categoryshow']="All Category";
+		}else{
+			$data['categoryshow']=$category;
+		}
+
+		if ($category == 'All') {
+			$data['category']="All";
+		}else{
+			$data['category']=$category;
+		}
 		$categoryLogo = $this->model('Post_model')->getCategoryLogo($category);
 		$data['logo'] = $categoryLogo;
 
-		if ($category == 'All Category') {
-			$data['post'] = $this->model('Post_model')->getAllPost();
-			$postCount = $this->model('Post_model')->countAllPost();
+		if ($category == 'All') {
+			$data['post'] = $this->model('Post_model')->getAllPost($data['rows']);
+			$postCount = $this->model('Post_model')->countAllPost($data['rows']);
 			
 			for ($i=0; $i < $postCount ; $i++) { 
 				// # code...
@@ -56,11 +68,16 @@ class Dashboard extends Controller {
 				$data['post'][$i]['ownername'] = $userData[0]['username'];
 				
 			}
-
+			// $data['postCount'] = $postCount;
+			// if ($data['postCount'] <= $data['rows']) {
+			// 	$data['visib'] = 'hidden';
+			// }else{
+			// 	$data['visib'] = 'visible';
+			// }
 		}else{
-			$data['post'] = $this->model('Post_model')->getPostByCategory($category);
-			$data['post'] = $this->model('Post_model')->getPostByCategory($category);
-			$postCount = $this->model('Post_model')->countPostByCategory($category);
+			// $data['post'] = $this->model('Post_model')->getPostByCategory($category);
+			$data['post'] = $this->model('Post_model')->getPostByCategory($category,$rows);
+			$postCount = $this->model('Post_model')->countPostByCategory($category,$rows);
 			
 			for ($i=0; $i < $postCount ; $i++) { 
 				$userData = $this->model('User_model')->getUserById($data['post'][$i]['owner']);
@@ -70,6 +87,7 @@ class Dashboard extends Controller {
 				$data['post'][$i]['ppowner'] = $userData[0]['photo'];
 				$data['post'][$i]['ownername'] = $userData[0]['username'];
 			}
+			
 		}
 
 
