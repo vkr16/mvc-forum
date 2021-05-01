@@ -49,8 +49,12 @@ class Dashboard extends Controller {
 			for ($i=0; $i < $postCount ; $i++) { 
 				// # code...
 				$userData = $this->model('User_model')->getUserById($data['post'][$i]['owner']);
+				$timeConvert = $this->model('Post_model')->convertTime($data['post'][$i]['time_posted']);
+				$data['post'][$i]['date'] = $timeConvert['date'];
+				$data['post'][$i]['hour'] = $timeConvert['hour'];
 				$data['post'][$i]['ppowner'] = $userData[0]['photo'];
 				$data['post'][$i]['ownername'] = $userData[0]['username'];
+				
 			}
 
 		}else{
@@ -59,8 +63,10 @@ class Dashboard extends Controller {
 			$postCount = $this->model('Post_model')->countPostByCategory($category);
 			
 			for ($i=0; $i < $postCount ; $i++) { 
-				// # code...
 				$userData = $this->model('User_model')->getUserById($data['post'][$i]['owner']);
+				$timeConvert = $this->model('Post_model')->convertTime($data['post'][$i]['time_posted']);
+				$data['post'][$i]['date'] = $timeConvert['date'];
+				$data['post'][$i]['hour'] = $timeConvert['hour'];
 				$data['post'][$i]['ppowner'] = $userData[0]['photo'];
 				$data['post'][$i]['ownername'] = $userData[0]['username'];
 			}

@@ -97,6 +97,33 @@ class Post_model
 	}
 
 	public function convertTime($datetime){
+			$chattime = $datetime;
+            $stringtime = strtotime($chattime);
+            $hour = date('H:i', $stringtime);
+
+            $today = new DateTime();
+            $today->setTime( 0, 0, 0 ); 
+
+            $match_date = DateTime::createFromFormat( "Y-m-d H:i:s", $chattime );
+            $match_date->setTime( 0, 0, 0 );
+
+            $diff = $today->diff( $match_date );
+            $diffDays = (integer)$diff->format( "%R%a" ); 
+
+            switch( $diffDays ) {
+                case 0:
+                    $theDate =  "Today";
+                    break;
+                case -1:
+                    $theDate =  "Yesterday";
+                    break;
+                default:
+                    $theDate =  date('d M Y', $stringtime);
+            }
+            $time['date']=$theDate;
+            $time['hour']=$hour;
+            return $time;
+           
 
 	}
 }

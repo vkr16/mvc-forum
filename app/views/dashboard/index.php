@@ -46,7 +46,7 @@
 						<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?=$post['ppowner'] ?>" height="30px" width="30px" class="rounded-circle">&emsp;
 						<div>
 							<span class="mb-0 pb-0"><?=$post['ownername'];?> &bull; <small><?= $post['category']  ?></small></span><br>
-							<small class="text-muted mt-0">Today at 12:33</small>
+							<small class="text-muted mt-0"><?=$post['date'].' at '.$post['hour'] ?></small>
 						</div>
 					</div>
 					<div class="mx-5 mt-3">  

@@ -11,6 +11,7 @@
 				</ul>
 				<div class="tab-content" id="myTabContent">
 				  <div class="tab-pane fade show active pt-4" id="post" role="tabpanel" aria-labelledby="post-tab">
+				  	
 				  	<!-- sample post -->
 				  	<div class="card mb-3 border border-info">
 						<div class="card-body">
@@ -48,43 +49,7 @@
 						</div>
 					</div>
 				  	<!-- sample post end -->
-				  	<!-- sample post -->
-				  	<div class="card mb-3 border border-info">
-						<div class="card-body">
-							<div>
-								<div class="row mx-1 d-flex justify-content-between">
-									<div class="row mx-1">
-										<img src="<?=ROOTURL ?>/public/assets/img/profile-img/user.jpg" height="30px" width="30px" class="rounded-circle">&emsp;
-										<div>
-											<span class="mb-0 pb-0">PisangBenyek &bull; <small>Python</small></span><br>
-											<small class="text-muted mt-0">Yesterday at 21:45</small>
-										</div>
-									</div>
-									<div class="btn-group dropleft">
-									  <button class="btn bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									  	<i class="fas fa-ellipsis-v text-muted"></i>
-									  </button>
-									  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									    <a class="dropdown-item" href="#"><small>Delete post</small></a>
-									  </div>
-									</div>
-								</div>
-								<div class="mx-5 mt-3">  
-									<a href="post" class="card-text deco-none">
-										<p class="text-muted">My Desktop start freezing everytime I run PyCharm v2020.3 <br> I've tried to reinstall the PyCharm but it doesn't take effect, anyone has the same issue? and how to fix this, it's very annoying:(</p>
-									</a>
-								</div>
-								<div class="d-flex justify-content-center mt-4">
-									<div class="text-center">
-										<a href="post" class="deco-none text-secondary">
-											<small><i class="fas fa-comment-alt fa-fw"></i> 4 Comments</small>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				  	<!-- sample post end -->
+				  	
 				  	<div class="d-flex justify-content-center">
 					  	<a href="#More" class="deco-none text-muted"><i class="fas fa-long-arrow-alt-down"></i> &nbsp;Load more&nbsp; <i class="fas fa-long-arrow-alt-down"></i> </a>
 				  	</div>
