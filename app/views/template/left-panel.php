@@ -4,29 +4,29 @@
 			<h5 class="card-title mx-3 mt-3 mb-0"><i class="fas fa-th fa-fw"></i>&nbsp;Category</h5><hr class="mt-3 mb-0">
 			<ul class="nav flex-column">
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info active" href="#"><i class="fas fa-asterisk fa-fw"></i>&nbsp;All category</a></small>
+			    <small><a class="nav-link text-info active" href="<?=ROOTURL?>/dashboard/index/All Category"><i class="fas fa-asterisk fa-fw"></i>&nbsp;All category</a></small>
 			  </li>
 
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-users fa-fw"></i>&nbsp;General</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/General"><i class="fas fa-users fa-fw"></i>&nbsp;General</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-code fa-fw"></i>&nbsp;Programming</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Programming"><i class="fas fa-code fa-fw"></i>&nbsp;Programming</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-gamepad fa-fw"></i>&nbsp;Gaming</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Gaming"><i class="fas fa-gamepad fa-fw"></i>&nbsp;Gaming</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-music fa-fw"></i>&nbsp;Music</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Music"><i class="fas fa-music fa-fw"></i>&nbsp;Music</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-film fa-fw"></i>&nbsp;Movie</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Movie"><i class="fas fa-film fa-fw"></i>&nbsp;Movie</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-book fa-fw"></i>&nbsp;Book</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Book"><i class="fas fa-book fa-fw"></i>&nbsp;Book</a></small>
 			  </li>
 			  <li class="nav-item">
-			    <small><a class="nav-link text-info" href="#"><i class="fas fa-paint-brush fa-fw"></i>&nbsp;Art</a></small>
+			    <small><a class="nav-link text-info" href="<?=ROOTURL?>/dashboard/index/Art"><i class="fas fa-paint-brush fa-fw"></i>&nbsp;Art</a></small>
 			  </li>
 
 

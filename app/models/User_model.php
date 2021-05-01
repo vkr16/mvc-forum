@@ -82,4 +82,12 @@ class User_model {
         return $this->db->resultSet();
     }
 
+    public function getUserById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id=:id');
+        $this->db->bind('id',$id);
+        // $this->db->execute();
+        return $this->db->resultSet();
+    }
+
 }
