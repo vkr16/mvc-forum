@@ -67,7 +67,7 @@
 		<?php endforeach ?>
 		<!-- Sample content end -->
 				
-			<div id="Load" class="d-flex justify-content-center mb-4" style="visibility: <?= $data['visib'] ?>">
+			<div id="Load" class="d-flex justify-content-center mb-4" style="visibility: <?= $data['visib']; ?>">
 				<a href="<?= ROOTURL.'/dashboard/index/'.$data['category']?>/<?php echo $data['rows'] += 2 ?>#Load" class="btn btn-light btn-lg">
 					<small class="text-secondary">
 
