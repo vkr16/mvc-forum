@@ -1,7 +1,7 @@
 <?php 
 
 class Dashboard extends Controller {
-	public function index($category = 'All',$rows = 2)
+	public function index($category = 'All',$rows = 10)
 	{	
 		$data['rows']=$rows;
 		// var_dump($data['rows']);

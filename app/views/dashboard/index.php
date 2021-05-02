@@ -50,13 +50,13 @@
 						</div>
 					</div>
 					<div class="mx-5 mt-3">  
-						<a href="post" class="card-text deco-none">
+						<a href="<?=ROOTURL ?>/post/<?=$post['id'] ?>" class="card-text deco-none">
 							<p class="text-muted"><?= $post['content']?></p>
 						</a>
 					</div>
 					<div class="d-flex justify-content-center mt-4">
 						<div class="text-center">
-							<a href="post" class="deco-none text-secondary">
+							<a href="<?=ROOTURL ?>/post" class="deco-none text-secondary">
 								<small><i class="fas fa-comment-alt fa-fw"></i> 3 Comments</small>
 							</a>
 						</div>
@@ -68,7 +68,7 @@
 		<!-- Sample content end -->
 				
 			<div id="Load" class="d-flex justify-content-center mb-4">
-				<a href="<?= ROOTURL.'/dashboard/index/'.$data['category']?>/<?php echo $data['rows'] += 2 ?>#Load" class="btn btn-light btn-lg">
+				<a href="<?= ROOTURL.'/dashboard/index/'.$data['category']?>/<?php echo $data['rows'] += 5 ?>#Load" class="btn btn-light btn-lg">
 					<small class="text-secondary">
 
 					<i class="fas fa-angle-double-down"></i> Load More <i class="fas fa-angle-double-down"></i>

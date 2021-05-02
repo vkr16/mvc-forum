@@ -9,14 +9,14 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="dashboard">Dashboard</a>
+        <a class="nav-link" href="<?=ROOTURL ?>/dashboard">Dashboard</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <?= $_SESSION['UserLoggedIn'] ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="profile">Profile</a>
+          <a class="dropdown-item" href="<?=ROOTURL ?>/profile">Profile</a>
           <a class="dropdown-item" href="<?=ROOTURL ?>/logout">Logout</a>
         </div>
       </li>

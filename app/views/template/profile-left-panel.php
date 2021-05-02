@@ -9,7 +9,7 @@
 				<p class="text-center "><?=$data['user']['fullname']?></p>
 				<div class="row d-flex justify-content-between text-center mt-3">
 					<div class="col-md-5">
-						<h6>51</h6> Posts
+						<h6><?= $data['postCount'] ?></h6> Posts
 					</div>
 					<div class="col-md-2">
 						|

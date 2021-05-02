@@ -12,7 +12,7 @@ class Search extends Controller {
 		$data['title'] = "Profile";
 		$this->view('template/header',$data);
 		$this->view('template/nav-inside');
-		$this->view('template/left-panel');
+		// $this->view('template/left-panel');
 		$this->view('search/index');
 		$this->view('template/right-panel',$data);
 		$this->view('template/footer');

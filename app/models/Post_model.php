@@ -101,7 +101,26 @@ class Post_model
 		return $total;
 	}
 
-	public function convertTime($datetime){
+	public function getPostFromThisUser($data)
+	{
+		$ownerid = $data;
+		$this->db->query('SELECT * FROM posts WHERE owner=:ownerid');
+		$this->db->bind('ownerid',$ownerid);
+		return $this->db->resultSet();
+	}
+
+	public function countPostFromThisUser($user)
+	{
+		$this->db->query('SELECT * FROM posts WHERE owner=:ownerid');
+		$this->db->bind('ownerid',$user);
+		$this->db->execute();
+		$total  = $this->db->rowCount();
+		
+		return $total;
+	}
+
+	public function convertTime($datetime)
+	{
 			$chattime = $datetime;
             $stringtime = strtotime($chattime);
             $hour = date('H:i', $stringtime);
@@ -128,7 +147,6 @@ class Post_model
             $time['date']=$theDate;
             $time['hour']=$hour;
             return $time;
-           
-
 	}
+
 }
