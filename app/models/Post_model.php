@@ -64,7 +64,7 @@ class Post_model
 		// var_dump($data);
 
 		$this->db->query('SELECT * FROM posts ORDER BY id DESC LIMIT '.$rows);
-		$this->db->bind('rows',$rows);
+		// $this->db->bind('rows',$rows);
 		$this->db->execute();
 		$result = $this->db->resultSet();
 		
@@ -75,7 +75,7 @@ class Post_model
 	{
 		// var_dump($rows);
 		$this->db->query('SELECT * FROM posts LIMIT '.$rows);
-		$this->db->bind('rows',$rows);
+		// $this->db->bind('rows',$rows);
 		$this->db->execute();
 		$total  = $this->db->rowCount();
 		
