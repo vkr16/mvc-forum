@@ -104,7 +104,7 @@ class Post_model
 	public function getPostFromThisUser($data)
 	{
 		$ownerid = $data;
-		$this->db->query('SELECT * FROM posts WHERE owner=:ownerid');
+		$this->db->query('SELECT * FROM posts WHERE owner=:ownerid ORDER BY id DESC');
 		$this->db->bind('ownerid',$ownerid);
 		return $this->db->resultSet();
 	}
@@ -155,6 +155,14 @@ class Post_model
 		$this->db->bind('id',$id);
 		$this->db->execute();
 		return $this->db->single();
+	}
+
+	public function deletePost($id)
+	{
+		$this->db->query('DELETE FROM posts WHERE id=:id');
+		$this->db->bind('id',$id);
+		$this->db->execute();
+		return $this->db->rowCount();
 	}
 
 }

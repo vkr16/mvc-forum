@@ -26,4 +26,14 @@ class Post extends Controller {
 		$this->view('template/footer');
 	}
 
+	public function delete($id)
+	{
+		if ($this->model('Post_model')->deletePost($id) > 0) {
+			echo '<script type="text/javascript">
+						console.log("Post has been removed successfully");
+					</script>';
+			header('Location:'.ROOTURL.'/profile');
+		}
+	}
+
 }

@@ -30,7 +30,7 @@
 										  	<i class="fas fa-ellipsis-v text-muted"></i>
 										  </button>
 										  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										    <a class="dropdown-item" href="#"><small>Delete post</small></a>
+										    <a class="dropdown-item" href="#" onclick="confirmDelete('<?=ROOTURL ?>','<?=$myPost['id']?>')"><small>Delete post</small></a>
 										  </div>
 										</div>
 									</div>
@@ -107,3 +107,11 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function confirmDelete(root,i){
+		if (confirm("Are you sure want to delete this post?") == true) {
+			window.location = root+'/post/delete/'+i;
+		}
+	}
+</script>

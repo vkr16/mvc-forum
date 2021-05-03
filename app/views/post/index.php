@@ -11,14 +11,19 @@
 								<small class="text-muted mt-0"><?= $data['time']['date'] .' at '.$data['time']['hour']?></small>
 							</div>
 						</div>
-						<div class="dropdown">
-						  <button class="btn bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  	<i class="fas fa-ellipsis-v text-muted"></i>
-						  </button>
-						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" href="#">Delete post</a>
-						  </div>
-						</div>
+						<?php 
+							if ($data['owner'][0]['username']==$_SESSION['UserLoggedIn']) {
+								 
+								echo '<div class="dropdown" >
+									  <button class="btn bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									  	<i class="fas fa-ellipsis-v text-muted"></i>
+									  </button>
+									  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									    <a class="dropdown-item" id="buttonDelete" href="#" onclick="confirmDelete('.ROOTURL.','.$data['post']['id'].')" href="#">Delete post</a>
+									  </div>
+									</div>';
+							}
+						 ?>
 					</div>
 					<div class="mx-5 mt-3">  
 						<span class="card-text deco-none">
@@ -83,3 +88,11 @@
 		</div>
 	</div>
 	
+	<script type="text/javascript">
+		function confirmDelete(root,i){
+			if (confirm("Are you sure want to delete this post?") == true) {
+				window.location = root+'/post/delete/'+i;
+			}
+		}
+	</script>
+
