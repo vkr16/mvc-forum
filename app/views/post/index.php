@@ -5,10 +5,10 @@
 				<div>
 					<div class="row mx-1 d-flex justify-content-between">
 						<div class="row mx-1">
-							<img src="<?=ROOTURL ?>/public/assets/img/profile-img/user.jpg" height="30px" width="30px" class="rounded-circle">&emsp;
+							<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?=$data['owner'][0]['photo']?>" height="30px" width="30px" class="rounded-circle">&emsp;
 							<div>
-								<span class="mb-0 pb-0">PisangBenyek &bull; <small>Python</small></span><br>
-								<small class="text-muted mt-0">Today at 12:33</small>
+								<span class="mb-0 pb-0"><?= $data['owner'][0]['username']?> &bull; <small><?=$data['post']['category']?></small></span><br>
+								<small class="text-muted mt-0"><?= $data['time']['date'] .' at '.$data['time']['hour']?></small>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -22,12 +22,15 @@
 					</div>
 					<div class="mx-5 mt-3">  
 						<span class="card-text deco-none">
-							<p class="text-muted">Anyone know how to fix python IDE keep not responding after initialized?</p>
+							<p class="text-muted"><?=$data['post']['content']?></p>
 							<hr class="mt-4">
 						</span>
-						<form >
-							<div class="form-group">
+						<form class="row">
+							<div class="form-group col-md-10">
 							    <textarea id="comment-field" class="form-control" id="FormControlTextarea1" rows="3" placeholder="Post a comment or answer"></textarea>
+							</div>
+							<div class="form-group col-md-2">
+							    <button class="btn btn-info">Comment</button>
 							</div>
 						</form>
 						<div id="comment-section">
