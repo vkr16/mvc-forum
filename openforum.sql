@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2021 at 07:12 AM
+-- Generation Time: May 03, 2021 at 05:19 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `openforum`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `commenter` int(11) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `time_commented` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,10 +57,8 @@ INSERT INTO `posts` (`id`, `owner`, `content`, `category`, `time_posted`) VALUES
 (8, 1, 'Hai apa kabar ?', 'General', '2021-05-02 11:08:22'),
 (9, 1, 'bisa bantu saya untuk mengatasi C:\\xampp\\htdocs\\mvc-forum\\app\\views\\dashboard\\index.php on line\r\n70\r\n\">', 'Programming', '2021-05-02 11:09:05'),
 (10, 1, 'Bisa bantu aku naik ke mmr 7000 ?', 'Gaming', '2021-05-02 11:12:54'),
-(11, 1, 'Apakah disini ada yang punya piringan hitam sex pistols ?', 'Music', '2021-05-02 11:14:02'),
 (12, 1, 'hai kamu wibu ', 'Movie', '2021-05-02 11:14:24'),
 (13, 1, 'aku menjual buku tabungan bank ku', 'Book', '2021-05-02 11:14:51'),
-(14, 1, 'apakah aliran seni rupa dari Rafael Sani ?', 'General', '2021-05-02 11:15:17'),
 (15, 2, 'Ada mau berkenalan denganku ?', 'General', '2021-05-02 11:19:47'),
 (16, 2, 'Bagaimana caranya menggunakan pointer pada C++ ?', 'Programming', '2021-05-02 11:20:14'),
 (17, 2, 'Ada yang mau join sama team ML ? -1 mid', 'Gaming', '2021-05-02 11:20:50'),
@@ -173,6 +185,12 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `email`, `password`, `photo`,
 --
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -187,6 +205,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `posts`

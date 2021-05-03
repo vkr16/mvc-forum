@@ -8,6 +8,13 @@ class Post extends Controller {
 		$data['user'] = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
 		$data['top10'] = $this->model('User_model')->getTop();
 
+		if ($data['post'] = $this->model('Post_model')->getPostById($postId) == NULL) {
+			// header('Location:'.ROOTURL.'/dashboard');
+		       header('This is not the page you are looking for', true, 404);
+			   header('Location:https://infinityfree.net/errors/404/');
+			   exit();
+		}
+
 		$data['post'] = $this->model('Post_model')->getPostById($postId);
 		$data['owner'] = $this->model('User_model')->getUserById($data['post']['owner']);
 
