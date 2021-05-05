@@ -10,9 +10,7 @@ class Post extends Controller {
 
 		if ($data['post'] = $this->model('Post_model')->getPostById($postId) == NULL) {
 			// header('Location:'.ROOTURL.'/dashboard');
-		       header('This is not the page you are looking for', true, 404);
-			   header('Location:https://infinityfree.net/errors/404/');
-			   exit();
+			   header('Location:'.ROOTURL.'/feedback/page_not_found');
 		}
 
 		$data['post'] = $this->model('Post_model')->getPostById($postId);
