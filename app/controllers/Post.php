@@ -17,10 +17,25 @@ class Post extends Controller {
 
 
 		$data['time'] = $this->model('Post_model')->convertTime($data['post']['time_posted']);
-
-
-
 		$data['count'] = count($data['top10']);
+
+
+
+		// load comment
+		$data['comments'] = $this->model('Comment_model')->commentLoad($postId);
+		$commentCount = $this->model('Comment_model')->commentCount($postId);
+
+		for ($i=0; $i < $commentCount; $i++) { 
+			$userData = $this->model('User_model')->getUserById($data['comments'][$i]['commenter']);
+			$timeConvert = $this->model('Post_model')->convertTime($data['comments'][$i]['time_commented']);
+			$data['comments'][$i]['date'] = $timeConvert['date'];
+			$data['comments'][$i]['hour'] = $timeConvert['hour'];
+			$data['comments'][$i]['photo'] = $userData[0]['photo'];
+			$data['comments'][$i]['username'] = $userData[0]['username'];
+
+		}
+
+
 		
 		$data['title'] = "View post";
 		$this->view('template/header',$data);
@@ -44,5 +59,6 @@ class Post extends Controller {
 	{ 
 		var_dump($id);
 	}
+
 
 }

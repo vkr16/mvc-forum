@@ -13,9 +13,13 @@ class Comment extends Controller {
 		$user = $this->model('User_model')->getUserData($c);
 
 		$c = $user['id'];
-		if ($this->model('Comment_model')->insertComment($a,$b,$c) > 0) {
+		if ($this->model('Comment_model')->insertComment($a,$b,$c) > 0) 
+		{
 			header('Location:'.ROOTURL.'/post/'.$a);
 		}
 
 	}
+
+	
+
 }

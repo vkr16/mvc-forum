@@ -39,22 +39,24 @@
 							</div>
 						</form>
 						<div id="comment-section">
-							<small class="text-muted "><a href="#other" class="deco-none text-dark"><i class="fas fa-long-arrow-alt-up"></i>&nbsp; Show more comments</a></small><br><br>
+							<!-- <small class="text-muted "><a href="#other" class="deco-none text-dark"><i class="fas fa-long-arrow-alt-up"></i>&nbsp; Show more comments</a></small><br> --><br>
 							<!-- comment sample -->
+							<?php foreach ($data['comments'] as $key => $comment): ?>
 							<div class="post-comment mb-4">
 								<div class="row mx-1">
-									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/usr10.jpeg" height="30px" width="30px" class="rounded-circle">&emsp;
+									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?= $comment['photo'] ?>" height="30px" width="30px" class="rounded-circle">&emsp;
 									<div>
-										<span class="mb-0 pb-0">buGuru69</span>&emsp;&bull;&emsp;
-										<small class="text-muted mt-0">Today at 13:11</small>
+										<span class="mb-0 pb-0"><?= $comment['username'] ?></span>&emsp;&bull;&emsp;
+										<small class="text-muted mt-0"><?= $comment['date'].' at '.$comment['hour'] ?></small>
 									</div>
 								</div>
 								<div class="mx-5 text-secondary">
-									Have you try to restart your pc? sometimes it help fix that kind of error
+									<?=$comment['content']; ?>
 								</div>
 							</div>
+							<?php endforeach ?>
 
-							<div class="post-comment mb-4">
+							<!-- <div class="post-comment mb-4">
 								<div class="row mx-1">
 									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/user.jpg" height="30px" width="30px" class="rounded-circle">&emsp;
 									<div>
@@ -78,7 +80,7 @@
 								<div class="mx-5 text-secondary">
 									Hahaha my pleasure to help 😊
 								</div>
-							</div>
+							</div> -->
 
 							<!-- sample end -->
 						</div><!-- comment section end -->

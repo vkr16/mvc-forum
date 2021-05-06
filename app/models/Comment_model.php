@@ -27,4 +27,22 @@ class Comment_model
 		return $this->db->rowCount();
 
 	}
+
+	public function commentLoad($postId)
+	{
+		$this->db->query('SELECT * FROM comments WHERE post_id =:postId ORDER BY id DESC');
+		$this->db->bind('postId' , $postId);
+		// $this->db->execute();
+		return $this->db->resultSet();
+		
+	}
+
+	public function commentCount($postId)
+	{
+		$this->db->query('SELECT * FROM comments WHERE post_id =:postId');
+		$this->db->bind('postId' , $postId);
+		$this->db->execute();
+		return $this->db->rowCount();
+
+	}
 }
