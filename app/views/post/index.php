@@ -30,12 +30,12 @@
 							<p class="text-muted"><?=$data['post']['content']?></p>
 							<hr class="mt-4">
 						</span>
-						<form class="row">
+						<form class="row" action="<?=ROOTURL ?>/comment/post/<?=$data['post']['id']?>" method="post">
 							<div class="form-group col-md-10">
-							    <textarea id="comment-field" class="form-control" id="FormControlTextarea1" rows="3" placeholder="Post a comment or answer"></textarea>
+							    <textarea id="comment-field" class="form-control" id="FormControlTextarea1" name="comment" rows="3" placeholder="Post a comment or answer"></textarea>
 							</div>
 							<div class="form-group col-md-2">
-							    <button class="btn btn-info">Comment</button>
+							    <button type="submit" class="btn btn-info">Comment</button>
 							</div>
 						</form>
 						<div id="comment-section">

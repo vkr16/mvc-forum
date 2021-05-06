@@ -9,7 +9,6 @@ class Post extends Controller {
 		$data['top10'] = $this->model('User_model')->getTop();
 
 		if ($data['post'] = $this->model('Post_model')->getPostById($postId) == NULL) {
-			// header('Location:'.ROOTURL.'/dashboard');
 			   header('Location:'.ROOTURL.'/feedback/page_not_found');
 		}
 
@@ -39,6 +38,11 @@ class Post extends Controller {
 					</script>';
 			header('Location:'.ROOTURL.'/profile');
 		}
+	}
+
+	public function comment($id)
+	{ 
+		var_dump($id);
 	}
 
 }
