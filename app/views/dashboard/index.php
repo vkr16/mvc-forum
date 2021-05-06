@@ -56,8 +56,8 @@
 					</div>
 					<div class="d-flex justify-content-center mt-4">
 						<div class="text-center">
-							<a href="<?=ROOTURL ?>/post" class="deco-none text-secondary">
-								<small><i class="fas fa-comment-alt fa-fw"></i> 3 Comments</small>
+							<a href="<?=ROOTURL ?>/post/<?=$post['id'] ?>" class="deco-none text-secondary">
+								<small><i class="fas fa-comment-alt fa-fw"></i> <?= $post['comments'] ?> Comments</small>
 							</a>
 						</div>
 					</div>

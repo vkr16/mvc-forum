@@ -15,7 +15,7 @@
 						|
 					</div>
 					<div class="col-md-5">
-						<h6>671</h6> Comments
+						<h6><?= $data['totalComment'] ?></h6> Comments
 					</div>
 				</div>
 				<table class="table mt-3">

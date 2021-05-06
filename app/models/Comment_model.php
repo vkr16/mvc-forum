@@ -45,4 +45,28 @@ class Comment_model
 		return $this->db->rowCount();
 
 	}
+
+	public function countMyComments($userId)
+	{
+		$this->db->query('SELECT * FROM comments WHERE commenter=:userId');
+		$this->db->bind('userId',$userId);
+		$this->db->execute();
+		return $this->db->rowCount();
+	}
+
+	public function getAllMyComments($userId)
+	{
+		$this->db->query('SELECT * FROM comments WHERE commenter=:userId ORDER BY id DESC');
+		$this->db->bind('userId',$userId);
+		$this->db->execute();
+		return $this->db->resultSet();
+	}
+
+	public function whichPost($postId)
+	{
+		$this->db->query('SELECT * FROM posts WHERE id=:postId');
+		$this->db->bind('postId',$postId);
+		$this->db->execute();
+		return $this->db->resultSet();
+	}
 }

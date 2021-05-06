@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="index">
+  <a class="navbar-brand" href="<?=ROOTURL ?>/dashboard">
     <img width="30" height="30" src="<?= ROOTURL ?>/public/assets/img/discuss.png">
     &nbsp;OpenForum
   </a>

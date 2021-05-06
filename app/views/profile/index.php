@@ -42,7 +42,7 @@
 									<div class="d-flex justify-content-center mt-4">
 										<div class="text-center">
 											<a href="post/<?=$myPost['id'] ?>" class="deco-none text-secondary">
-												<small><i class="fas fa-comment-alt fa-fw"></i> 4 Comments</small>
+												<small><i class="fas fa-comment-alt fa-fw"></i> <?= $myPost['comments'] ?> Comments</small>
 											</a>
 										</div>
 									</div>
@@ -58,49 +58,32 @@
 				  	</div> -->
 				  </div>
 				  <div class="tab-pane fade pt-4" id="comment" role="tabpanel" aria-labelledby="comment-tab">
+				  	<?php for ($i=0; $i < $data['totalComment']; $i++) { ?>
 				  	<!-- sample comment -->
 				  	<div class="card mb-3 border border-info">
 						<div class="card-body">
 							<div>
 								<div class="row mx-1">
-									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/user.jpg" height="30px" width="30px" class="rounded-circle">&emsp;
+									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?=$data['user']['photo']?>" height="30px" width="30px" class="rounded-circle">&emsp;
 									<div>
-										<span class="mb-0 pb-0">PisangBenyek &bull; <small>Python  <span class="text-muted"> <i class="fas fa-reply"></i> in <a class="text-muted" href="post">"My Desktop start freezing everytime I run PyCharm. . ."</a></span></small></span><br>
+										<span class="mb-0 pb-0"><?= $_SESSION['UserLoggedIn'] ?> &bull; <small><?= $data['myComments']['thisPost'][$i][0]['category']?>  <span class="text-muted"> <i class="fas fa-reply"></i> in <a class="text-muted" href="post">"<?= $data['myComments']['thisPost'][$i][0]['content']?>"</a></span></small></span><br>
 										<small class="text-muted mt-0">Today at 14:23</small>
 									</div>
 								</div>
 								<div class="mx-5 mt-3">  
 									<span class="card-text deco-none">
-										<p class="text-muted">if restarting the kernel didn't help you might try to reinstall the library</p>
+										<p class="text-muted"><?= $data['myComments'][$i]['content'] ?></p>
 									</span>
 								</div>
 							</div>
 						</div>
 					</div>
 				  	<!-- sample comment end -->
-				  	<!-- sample comment -->
-				  	<div class="card mb-3 border border-info">
-						<div class="card-body">
-							<div>
-								<div class="row mx-1">
-									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/user.jpg" height="30px" width="30px" class="rounded-circle">&emsp;
-									<div>
-										<span class="mb-0 pb-0">PisangBenyek &bull; <small>Python  <span class="text-muted"> <i class="fas fa-reply"></i> in <a class="text-muted" href="post">"My Desktop start freezing everytime I run PyCharm. . ."</a></span></small></span><br>
-										<small class="text-muted mt-0">Yesterday at 11:13</small>
-									</div>
-								</div>
-								<div class="mx-5 mt-3">  
-									<span class="card-text deco-none">
-										<p class="text-muted">You can try to restat the kernel to make it work again... tell me if that work for you</p>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				  	<!-- sample comment end -->
-				  	<div class="d-flex justify-content-center">
+			  		<?php } ?>
+				  	
+				  <!-- 	<div class="d-flex justify-content-center">
 					  	<a href="#MoreComment" class="deco-none text-muted"><i class="fas fa-long-arrow-alt-down"></i> &nbsp;Load more&nbsp; <i class="fas fa-long-arrow-alt-down"></i> </a>
-				  	</div>
+				  	</div> -->
 				  </div>
 				</div>
 			</div>

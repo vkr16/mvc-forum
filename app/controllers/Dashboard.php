@@ -62,10 +62,12 @@ class Dashboard extends Controller {
 				// # code...
 				$userData = $this->model('User_model')->getUserById($data['post'][$i]['owner']);
 				$timeConvert = $this->model('Post_model')->convertTime($data['post'][$i]['time_posted']);
+				$commentCount = $this->model('Comment_model')->commentCount($data['post'][$i]['id']);
 				$data['post'][$i]['date'] = $timeConvert['date'];
 				$data['post'][$i]['hour'] = $timeConvert['hour'];
 				$data['post'][$i]['ppowner'] = $userData[0]['photo'];
 				$data['post'][$i]['ownername'] = $userData[0]['username'];
+				$data['post'][$i]['comments'] = $commentCount;
 				
 			}
 			// $data['postCount'] = $postCount;
@@ -82,6 +84,10 @@ class Dashboard extends Controller {
 			for ($i=0; $i < $postCount ; $i++) { 
 				$userData = $this->model('User_model')->getUserById($data['post'][$i]['owner']);
 				$timeConvert = $this->model('Post_model')->convertTime($data['post'][$i]['time_posted']);
+				$commentCount = $this->model('Comment_model')->commentCount($data['post'][$i]['id']);
+
+				$data['post'][$i]['comments'] = $commentCount;
+				
 				$data['post'][$i]['date'] = $timeConvert['date'];
 				$data['post'][$i]['hour'] = $timeConvert['hour'];
 				$data['post'][$i]['ppowner'] = $userData[0]['photo'];
