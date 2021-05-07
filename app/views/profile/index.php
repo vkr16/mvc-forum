@@ -66,8 +66,8 @@
 								<div class="row mx-1">
 									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?=$data['user']['photo']?>" height="30px" width="30px" class="rounded-circle">&emsp;
 									<div>
-										<span class="mb-0 pb-0"><?= $_SESSION['UserLoggedIn'] ?> &bull; <small><?= $data['myComments']['thisPost'][$i][0]['category']?>  <span class="text-muted"> <i class="fas fa-reply"></i> in <a class="text-muted" href="post">"<?= $data['myComments']['thisPost'][$i][0]['content']?>"</a></span></small></span><br>
-										<small class="text-muted mt-0">Today at 14:23</small>
+										<span class="mb-0 pb-0"><?= $_SESSION['UserLoggedIn'] ?> &bull; <small><?= $data['myComments']['thisPost'][$i][0]['category']?>  <span class="text-muted"> <i class="fas fa-reply"></i> in <a class="text-muted" href="<?= ROOTURL ?>/post/<?= $data['myComments']['thisPost'][$i][0]['id']?>">"<?= $data['myComments']['thisPost'][$i][0]['content']?>"</a></span></small></span><br>
+										<small class="text-muted mt-0"><?= $data['myComments'][$i]['date'].' at '.$data['myComments'][$i]['hour']   ?></small>
 									</div>
 								</div>
 								<div class="mx-5 mt-3">  

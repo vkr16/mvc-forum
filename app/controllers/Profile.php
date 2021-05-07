@@ -30,6 +30,11 @@ class Profile extends Controller {
 			$data['myComments']['thisPost'][$i] = $this->model('Comment_model')->whichPost($data['myComments'][$i]['post_id']);
 
 			$data['myComments']['thisPost'][$i][0]['content'] = substr($data['myComments']['thisPost'][$i][0]['content'], 0,40);
+
+			$timeConvert = $this->model('Post_model')->convertTime($data['myComments'][$i]['time_commented']);
+
+			$data['myComments'][$i]['date'] = $timeConvert['date'];
+			$data['myComments'][$i]['hour'] = $timeConvert['hour'];
 		}
 
 		// var_dump($userPost);die();

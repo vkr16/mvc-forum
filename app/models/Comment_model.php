@@ -25,7 +25,6 @@ class Comment_model
 		$this->db->execute();
 
 		return $this->db->rowCount();
-
 	}
 
 	public function commentLoad($postId)
@@ -34,7 +33,6 @@ class Comment_model
 		$this->db->bind('postId' , $postId);
 		// $this->db->execute();
 		return $this->db->resultSet();
-		
 	}
 
 	public function commentCount($postId)
@@ -43,7 +41,6 @@ class Comment_model
 		$this->db->bind('postId' , $postId);
 		$this->db->execute();
 		return $this->db->rowCount();
-
 	}
 
 	public function countMyComments($userId)
