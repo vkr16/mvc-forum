@@ -128,8 +128,8 @@
         <!-- sample notification end -->
       </div>
     </div>
-    <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <form class="form-inline mt-2 mt-md-0" action="<?=ROOTURL ?>/search" method="post">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search">
       <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
