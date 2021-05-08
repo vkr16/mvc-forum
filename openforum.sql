@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 05:19 PM
+-- Generation Time: May 08, 2021 at 07:18 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -38,6 +38,21 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `sender_username` varchar(255) NOT NULL,
+  `sender_photo` varchar(255) NOT NULL,
+  `recipient` int(11) NOT NULL,
+  `time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -58,7 +73,6 @@ INSERT INTO `posts` (`id`, `owner`, `content`, `category`, `time_posted`) VALUES
 (9, 1, 'bisa bantu saya untuk mengatasi C:\\xampp\\htdocs\\mvc-forum\\app\\views\\dashboard\\index.php on line\r\n70\r\n\">', 'Programming', '2021-05-02 11:09:05'),
 (10, 1, 'Bisa bantu aku naik ke mmr 7000 ?', 'Gaming', '2021-05-02 11:12:54'),
 (12, 1, 'hai kamu wibu ', 'Movie', '2021-05-02 11:14:24'),
-(13, 1, 'aku menjual buku tabungan bank ku', 'Book', '2021-05-02 11:14:51'),
 (15, 2, 'Ada mau berkenalan denganku ?', 'General', '2021-05-02 11:19:47'),
 (16, 2, 'Bagaimana caranya menggunakan pointer pada C++ ?', 'Programming', '2021-05-02 11:20:14'),
 (17, 2, 'Ada yang mau join sama team ML ? -1 mid', 'Gaming', '2021-05-02 11:20:50'),
@@ -141,7 +155,11 @@ INSERT INTO `posts` (`id`, `owner`, `content`, `category`, `time_posted`) VALUES
 (94, 13, 'slow music good vibes', 'Music', '2021-05-02 12:09:04'),
 (95, 13, '2020 - 2021 deat film ?', 'Movie', '2021-05-02 12:09:29'),
 (96, 13, 'apa ada yang suka juga baca buku anak anak ?', 'Book', '2021-05-02 12:10:07'),
-(97, 13, 'galeleo tuh seniman bukan sih ?', 'Art', '2021-05-02 12:10:29');
+(97, 13, 'galeleo tuh seniman bukan sih ?', 'Art', '2021-05-02 12:10:29'),
+(98, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'General', '2021-05-07 00:07:08'),
+(99, 1, 'xdcfvghyujikolp', 'General', '2021-05-07 00:39:58'),
+(100, 1, 'wibu bau bawang', 'Art', '2021-05-07 18:33:13'),
+(101, 1, 'Wibu baru\r\n', 'Gaming', '2021-05-08 22:29:52');
 
 -- --------------------------------------------------------
 
@@ -191,6 +209,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -213,10 +237,16 @@ ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `users`
