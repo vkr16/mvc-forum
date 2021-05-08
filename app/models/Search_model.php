@@ -13,7 +13,7 @@ class Search_model
 
 	public function find($searchQuery)
 	{
-		$this->db->query('SELECT * FROM posts WHERE content LIKE :searchQuery');
+		$this->db->query('SELECT * FROM posts WHERE content LIKE :searchQuery ORDER BY id DESC');
 
 		$this->db->bind('searchQuery','%'.$searchQuery.'%');
 		return $this->db->resultSet();

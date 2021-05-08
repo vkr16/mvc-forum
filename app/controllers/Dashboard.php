@@ -3,6 +3,7 @@
 class Dashboard extends Controller {
 	public function index($category = 'All',$rows = 10)
 	{	
+
 		$data['rows']=$rows;
 		// var_dump($data['rows']);
 		switch ($category) {
@@ -36,6 +37,32 @@ class Dashboard extends Controller {
 		}
 		$this->model('User_model')->isLoggedOut();
 		$data['user'] = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
+
+		//notifLoaderStart
+		// $data['notification'] = $this->model('Notification_model')->notificationLoader($data['user']['id']);
+		// $data['notifCount'] = $this->model('Notification_model')->notificationCount($data['user']['id']);
+
+		// foreach ($data['notification'] as $key => $notif) {
+		// 	$data['comments'] = $this->model('Comment_model')->getCommentById($data['notification'][$key]['comment_id']);
+		// 		var_dump($data['comments'][0]['content']);
+		// 		var_dump($data['comments'][0]['time_commented']);
+		// 	$data['commenterDetail'] = $this->model('User_model')->getUserById($data['comments'][0]['commenter']);
+		// 		var_dump($data['commenterDetail'][0]['username']);
+		// 		var_dump($data['commenterDetail'][0]['photo']);echo "<br><br>";
+		// }
+		// for ($i=0; $i < $data['notifCount']; $i++) { 
+		// 	// $data['comments'] = $this->model('Comment_model')->getCommentById($data['notification'][$i]['comment_id']);
+		// 	// 	var_dump($data['comments'][0]['content']);
+		// 	// 	var_dump($data['comments'][0]['time_commented']);
+		// 	// $data['commenterDetail'] = $this->model('User_model')->getUserById($data['comments'][0]['commenter']);
+		// 	// 	var_dump($data['commenterDetail'][0]['username']);
+		// 	// 	var_dump($data['commenterDetail'][0]['photo']);echo "<br><br>";
+
+		// }
+		//notifLoaderEnd
+
+		// var_dump($data['notification']	);die();
+
 		$data['top10'] = $this->model('User_model')->getTop();
 
 		$data['count'] = count($data['top10']);
@@ -100,7 +127,7 @@ class Dashboard extends Controller {
 
 		$data['title'] = "Dashboard";
 		$this->view('template/header',$data);
-		$this->view('template/nav-inside');	
+		$this->view('template/nav-inside',$data);	
 		$this->view('template/left-panel');
 		$this->view('dashboard/index',$data);
 		$this->view('template/right-panel',$data);

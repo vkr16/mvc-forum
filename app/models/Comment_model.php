@@ -66,4 +66,20 @@ class Comment_model
 		$this->db->execute();
 		return $this->db->resultSet();
 	}
+
+	public function getLastComment()
+	{
+		$this->db->query('SELECT id FROM comments ORDER BY id DESC LIMIT 1');
+		$this->db->execute();
+		return $this->db->single();
+	}
+
+	public function getCommentById($id)
+	{
+		$this->db->query('SELECT * FROM comments WHERE id=:id');
+		$this->db->bind('id', $id);
+		$this->db->execute();
+
+		return $this->db->resultSet();
+	}
 }

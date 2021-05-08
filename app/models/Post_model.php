@@ -165,4 +165,12 @@ class Post_model
 		return $this->db->rowCount();
 	}
 
+	public function getPostOwnerByPostId($postid)
+	{
+		$this->db->query('SELECT owner FROM posts WHERE id=:postid');
+		$this->db->bind('postid',$postid);
+		$this->db->execute();
+		return $this->db->single();
+	}
+
 }
