@@ -108,4 +108,13 @@ class User_model {
 
     }
 
+    public function updateUserPhoto($id,$photo)
+    {
+        $this->db->query('UPDATE users SET photo =:photo WHERE id=:id');
+        $this->db->bind('photo',$photo);
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
 }

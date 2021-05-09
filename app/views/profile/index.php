@@ -91,6 +91,47 @@
 	</div>
 </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload New Profile Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form enctype="multipart/form-data" action="<?=ROOTURL ?>/profile/uploadPhoto" method="POST">
+      	<p>Upload your file</p>
+      	<small class="text-danger mb-3">&bull; Any image extensions are allowed <br> &bull; it's better if you upload an image in a square ratio</small>
+	    <!-- <input type="file" name="uploaded_file"></input><br /> -->
+
+
+	    <div class="input-group mb-3 mt-3">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="inputGroupFileAddon01">New Image : </span>
+		  </div>
+		  <div class="custom-file">
+		    <input type="file" name="uploaded_file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+		    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+		  </div>
+		</div>
+	    <input type="submit" value="Upload" class="btn btn-info"></input>
+
+
+      </form>
+      </div>
+     <!--  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 	function confirmDelete(root,i){
 		if (confirm("Are you sure want to delete this post?") == true) {

@@ -65,4 +65,30 @@ class Profile extends Controller {
 		$this->view('profile/index',$data);
 		$this->view('template/footer');
 	}
+
+
+
+	public function uploadPhoto()
+	{
+		 if(!empty($_FILES['uploaded_file']))
+		  {
+		    $path = $_SERVER['DOCUMENT_ROOT']."/mvc-forum/public/assets/img/profile-img/";
+		    $path2 = $_FILES['uploaded_file']['name'];
+		    $ext = pathinfo($path2, PATHINFO_EXTENSION);
+		    // var_dump($ext);die();
+		    // $path = $path . basename( $_FILES['uploaded_file']['name']);
+		    $path = $path . $_SESSION['UserLoggedIn'].'.'. $ext;
+
+		    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+		      $photoName = $_SESSION['UserLoggedIn'].'.'. $ext;
+			  $data['user'] = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
+
+		      $this->model('User_model')->updateUserPhoto($data['user']['id'],$photoName);
+		      header('Location:'.ROOTURL.'/profile');
+		    } else{
+		        echo "There was an error uploading the file, please try again!";
+		    }
+		  }
+	}
+
 }
