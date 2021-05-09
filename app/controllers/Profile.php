@@ -37,10 +37,30 @@ class Profile extends Controller {
 			$data['myComments'][$i]['hour'] = $timeConvert['hour'];
 		}
 
+
+		#load notif start
+		$data['ntf'] = $this->model('Notification_model')->notificationLoader($data['user']['id']);
+		$data['ntfCount'] = $this->model('Notification_model')->notificationCount($data['user']['id']);
+		for ($i=0; $i < $data['ntfCount'] ; $i++) { 
+			$data['cmts'] = $this->model('Comment_model')->getCommentById($data['ntf'][$i]['comment_id']);
+			$data['dPost'] = $this->model('Post_model')->getPostById($data['cmts'][0]['post_id']);
+
+			$data['postContent'][$i] = $data['dPost']['content'];
+			$data['postContent'][$i] = mb_strimwidth($data['postContent'][$i], 0,50,"...");
+			$data['pstId'][$i] = $data['dPost']['id'];
+			// var_dump($data['postContent'][$i]);echo "<br><br>";
+			$data['cmt'][$i] = $data['cmts'][0]['content'];
+			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,25,"...");
+			$data['notifPhoto'][$i] = $data['ntf'][$i]['sender_photo'];
+			$data['notifUsername'][$i] = $data['ntf'][$i]['sender_username'];
+		}
+		
+		#load notif end
+
 		// var_dump($userPost);die();
 		$data['title'] = "Profile";
 		$this->view('template/header',$data);
-		$this->view('template/nav-inside');
+		$this->view('template/nav-inside',$data);
 		$this->view('template/profile-left-panel',$data);
 		$this->view('profile/index',$data);
 		$this->view('template/footer');

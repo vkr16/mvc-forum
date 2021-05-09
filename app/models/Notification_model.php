@@ -24,8 +24,7 @@ class Notification_model
 
 	public function notificationLoader($userId)
 	{
-
-		$this->db->query('SELECT * FROM notifications WHERE recipient=:myuserid');
+		$this->db->query('SELECT * FROM notifications WHERE recipient=:myuserid ORDER BY id DESC LIMIT 50');
 		$this->db->bind('myuserid',$userId);	
 		$this->db->execute();
 		return $this->db->resultSet();

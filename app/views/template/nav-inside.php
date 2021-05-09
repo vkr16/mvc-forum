@@ -26,18 +26,20 @@
         
       <div class="dropdown-menu p-2 text-muted dropdown-menu-lg-right" id="notification-slot">
         Notification <hr>
+
+        <?php for ($i=0; $i < $data['ntfCount']; $i++) { ?>
         <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
+          <a href="<?=ROOTURL ?>/post/<?= $data['pstId'][$i].'#'.$data['ntf'][$i]['comment_id'] ?>" class="deco-none text-dark">
             <div class="alert alert-info p-1">
             <div class="row mx-1 d-flex justify-content-left align-items-center">
               <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
+                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/<?=$data['notifPhoto'][$i] ?>">&nbsp;
               </div>
               <div class="col-md-10">
-                <small><strong>Kaveen99</strong> </small><br>
+                <small><strong><?=$data['notifUsername'][$i] ?></strong> </small><br>
                 <small>commented on your post</small>
-                <small class="text-muted">"I just finished installing..."</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
+                <small class="text-muted">"<?=$data['cmt'][$i]?>"</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"<?=$data['postContent'][$i]?>"</small><br>
               </div>
             </div>
             <div class="col-md-12 d-flex justify-content-end align-items-center">
@@ -46,86 +48,8 @@
           </div>
         </a>
         <!-- sample notification end -->
-        <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div class="col-md-10">
-                <small><strong>Kaveen99</strong> </small><br>
-                <small>commented on your post</small>
-                <small class="text-muted">"I just finished installing..."</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
-              </div>
-            </div>
-            <div class="col-md-12 d-flex justify-content-end align-items-center">
-              <small class="text-primary">Today at 16:43</small>
-            </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
-        <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div class="col-md-10">
-                <small><strong>Kaveen99</strong> </small><br>
-                <small>commented on your post</small>
-                <small class="text-muted">"I just finished installing..."</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
-              </div>
-            </div>
-            <div class="col-md-12 d-flex justify-content-end align-items-center">
-              <small class="text-primary">Today at 16:43</small>
-            </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
-        <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div class="col-md-10">
-                <small><strong>Kaveen99</strong> </small><br>
-                <small>commented on your post</small>
-                <small class="text-muted">"I just finished installing..."</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
-              </div>
-            </div>
-            <div class="col-md-12 d-flex justify-content-end align-items-center">
-              <small class="text-primary">Today at 16:43</small>
-            </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
-        <!-- sample notification -->
-          <a href="#kepostingan" class="deco-none text-dark">
-            <div class="alert alert-info p-1">
-            <div class="row mx-1 d-flex justify-content-left align-items-center">
-              <div>
-                <img width="40px" height="40px" class="rounded-circle mx-2" src="<?= ROOTURL ?>/public/assets/img/profile-img/usr6.jpeg">&nbsp;
-              </div>
-              <div class="col-md-10">
-                <small><strong>Kaveen99</strong> </small><br>
-                <small>commented on your post</small>
-                <small class="text-muted">"I just finished installing..."</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"Can you lead me through the installation prog...."</small><br>
-              </div>
-            </div>
-            <div class="col-md-12 d-flex justify-content-end align-items-center">
-              <small class="text-primary">Today at 16:43</small>
-            </div>
-          </div>
-        </a>
-        <!-- sample notification end -->
+        <?php } ?>
+        
       </div>
     </div>
     <form class="form-inline mt-2 mt-md-0" action="<?=ROOTURL ?>/search" method="post">

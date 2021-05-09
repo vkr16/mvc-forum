@@ -42,7 +42,7 @@
 							<!-- <small class="text-muted "><a href="#other" class="deco-none text-dark"><i class="fas fa-long-arrow-alt-up"></i>&nbsp; Show more comments</a></small><br> --><br>
 							<!-- comment sample -->
 							<?php foreach ($data['comments'] as $key => $comment): ?>
-							<div class="post-comment mb-4">
+							<div class="post-comment mb-4" id="<?=$comment['id']?>">
 								<div class="row mx-1">
 									<img src="<?=ROOTURL ?>/public/assets/img/profile-img/<?= $comment['photo'] ?>" height="30px" width="30px" class="rounded-circle">&emsp;
 									<div>

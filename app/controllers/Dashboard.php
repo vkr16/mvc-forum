@@ -38,30 +38,6 @@ class Dashboard extends Controller {
 		$this->model('User_model')->isLoggedOut();
 		$data['user'] = $this->model('User_model')->getUserData($_SESSION['UserLoggedIn']);
 
-		//notifLoaderStart
-		// $data['notification'] = $this->model('Notification_model')->notificationLoader($data['user']['id']);
-		// $data['notifCount'] = $this->model('Notification_model')->notificationCount($data['user']['id']);
-
-		// foreach ($data['notification'] as $key => $notif) {
-		// 	$data['comments'] = $this->model('Comment_model')->getCommentById($data['notification'][$key]['comment_id']);
-		// 		var_dump($data['comments'][0]['content']);
-		// 		var_dump($data['comments'][0]['time_commented']);
-		// 	$data['commenterDetail'] = $this->model('User_model')->getUserById($data['comments'][0]['commenter']);
-		// 		var_dump($data['commenterDetail'][0]['username']);
-		// 		var_dump($data['commenterDetail'][0]['photo']);echo "<br><br>";
-		// }
-		// for ($i=0; $i < $data['notifCount']; $i++) { 
-		// 	// $data['comments'] = $this->model('Comment_model')->getCommentById($data['notification'][$i]['comment_id']);
-		// 	// 	var_dump($data['comments'][0]['content']);
-		// 	// 	var_dump($data['comments'][0]['time_commented']);
-		// 	// $data['commenterDetail'] = $this->model('User_model')->getUserById($data['comments'][0]['commenter']);
-		// 	// 	var_dump($data['commenterDetail'][0]['username']);
-		// 	// 	var_dump($data['commenterDetail'][0]['photo']);echo "<br><br>";
-
-		// }
-		//notifLoaderEnd
-
-		// var_dump($data['notification']	);die();
 
 		$data['top10'] = $this->model('User_model')->getTop();
 
@@ -122,6 +98,25 @@ class Dashboard extends Controller {
 			}
 			
 		}
+
+		#load notif start
+		$data['ntf'] = $this->model('Notification_model')->notificationLoader($data['user']['id']);
+		$data['ntfCount'] = $this->model('Notification_model')->notificationCount($data['user']['id']);
+		for ($i=0; $i < $data['ntfCount'] ; $i++) { 
+			$data['cmts'] = $this->model('Comment_model')->getCommentById($data['ntf'][$i]['comment_id']);
+			$data['dPost'] = $this->model('Post_model')->getPostById($data['cmts'][0]['post_id']);
+
+			$data['postContent'][$i] = $data['dPost']['content'];
+			$data['postContent'][$i] = mb_strimwidth($data['postContent'][$i], 0,50,"...");
+			$data['pstId'][$i] = $data['dPost']['id'];
+			// var_dump($data['postContent'][$i]);echo "<br><br>";
+			$data['cmt'][$i] = $data['cmts'][0]['content'];
+			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,25,"...");
+			$data['notifPhoto'][$i] = $data['ntf'][$i]['sender_photo'];
+			$data['notifUsername'][$i] = $data['ntf'][$i]['sender_username'];
+		}
+		
+		#load notif end
 
 
 

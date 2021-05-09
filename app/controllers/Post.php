@@ -28,6 +28,7 @@ class Post extends Controller {
 		for ($i=0; $i < $commentCount; $i++) { 
 			$userData = $this->model('User_model')->getUserById($data['comments'][$i]['commenter']);
 			$timeConvert = $this->model('Post_model')->convertTime($data['comments'][$i]['time_commented']);
+			// $data['comments'][$i]['id'];
 			$data['comments'][$i]['date'] = $timeConvert['date'];
 			$data['comments'][$i]['hour'] = $timeConvert['hour'];
 			$data['comments'][$i]['photo'] = $userData[0]['photo'];
@@ -36,10 +37,27 @@ class Post extends Controller {
 		}
 
 
+		#load notif start
+		$data['ntf'] = $this->model('Notification_model')->notificationLoader($data['user']['id']);
+		$data['ntfCount'] = $this->model('Notification_model')->notificationCount($data['user']['id']);
+		for ($i=0; $i < $data['ntfCount'] ; $i++) { 
+			$data['cmts'] = $this->model('Comment_model')->getCommentById($data['ntf'][$i]['comment_id']);
+			$data['dPost'] = $this->model('Post_model')->getPostById($data['cmts'][0]['post_id']);
+
+			$data['postContent'][$i] = $data['dPost']['content'];
+			$data['postContent'][$i] = mb_strimwidth($data['postContent'][$i], 0,50,"...");
+			$data['pstId'][$i] = $data['dPost']['id'];
+			// var_dump($data['postContent'][$i]);echo "<br><br>";
+			$data['cmt'][$i] = $data['cmts'][0]['content'];
+			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,25,"...");
+			$data['notifPhoto'][$i] = $data['ntf'][$i]['sender_photo'];
+			$data['notifUsername'][$i] = $data['ntf'][$i]['sender_username'];
+		}
 		
+		#load notif end
 		$data['title'] = "View post";
 		$this->view('template/header',$data);
-		$this->view('template/nav-inside');
+		$this->view('template/nav-inside',$data);
 		$this->view('post/index',$data);
 		$this->view('template/right-panel',$data);
 		$this->view('template/footer');
