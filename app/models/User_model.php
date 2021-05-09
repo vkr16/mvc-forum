@@ -90,4 +90,22 @@ class User_model {
         return $this->db->resultSet();
     }
 
+    public function getUserPointById($id)
+    {
+        $this->db->query('SELECT * FROM users WHERE id=:id');
+        $this->db->bind('id',$id);
+        return $this->db->single();
+    }
+
+    public function updateUserPoint($id,$point,$rank)
+    {
+        $this->db->query('UPDATE users SET points =:points , rank=:rank WHERE id=:id');
+        $this->db->bind('points',$point);
+        $this->db->bind('rank',$rank);
+        $this->db->bind('id',$id);
+        $this->db->execute();
+        return $this->db->rowCount();
+
+    }
+
 }
