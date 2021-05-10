@@ -19,7 +19,9 @@ class Post_model
 		$this->db->bind('category',$data['category']);
 
 		$this->db->execute();
-        return $this->db->rowCount();
+		$return = $this->db->rowCount();
+        $this->db = null;
+        return $return;
 	}
 
 	public function getCategoryLogo($data)
@@ -57,6 +59,7 @@ class Post_model
 				return 'fas fa-users';
 				break;
 		}
+		$this->db = null;
 	}
 
 	public function getAllPost($rows)
@@ -68,6 +71,7 @@ class Post_model
 		$this->db->execute();
 		$result = $this->db->resultSet();
 		
+		$this->db = null;
 		return $result;
 	}
 
@@ -79,6 +83,7 @@ class Post_model
 		$this->db->execute();
 		$total  = $this->db->rowCount();
 		
+		$this->db = null;
 		return $total;
 	}
 
@@ -88,6 +93,7 @@ class Post_model
 		$this->db->bind('category',$category);
 		$result = $this->db->resultSet();
 		
+		$this->db = null;
 		return $result;
 	}
 
@@ -98,6 +104,7 @@ class Post_model
 		$this->db->execute();
 		$total  = $this->db->rowCount();
 		
+		$this->db = null;
 		return $total;
 	}
 
@@ -106,7 +113,9 @@ class Post_model
 		$ownerid = $data;
 		$this->db->query('SELECT * FROM posts WHERE owner=:ownerid ORDER BY id DESC');
 		$this->db->bind('ownerid',$ownerid);
-		return $this->db->resultSet();
+		$return = $this->db->resultSet();
+		$this->db = null;
+		return $return;
 	}
 
 	public function countPostFromThisUser($user)
@@ -116,6 +125,7 @@ class Post_model
 		$this->db->execute();
 		$total  = $this->db->rowCount();
 		
+		$this->db = null;
 		return $total;
 	}
 
@@ -146,6 +156,7 @@ class Post_model
             }
             $time['date']=$theDate;
             $time['hour']=$hour;
+            $this->db = null;
             return $time;
 	}
 
@@ -154,7 +165,9 @@ class Post_model
 		$this->db->query('SELECT * FROM posts WHERE id=:id');
 		$this->db->bind('id',$id);
 		$this->db->execute();
-		return $this->db->single();
+		$return =  $this->db->single();
+		$this->db = null;
+		return $return;
 	}
 
 	public function deletePost($id)
@@ -162,7 +175,9 @@ class Post_model
 		$this->db->query('DELETE FROM posts WHERE id=:id');
 		$this->db->bind('id',$id);
 		$this->db->execute();
-		return $this->db->rowCount();
+		$return = $this->db->rowCount();
+		$this->db = null;
+		return $return ;
 	}
 
 	public function getPostOwnerByPostId($postid)
@@ -170,7 +185,9 @@ class Post_model
 		$this->db->query('SELECT owner FROM posts WHERE id=:postid');
 		$this->db->bind('postid',$postid);
 		$this->db->execute();
-		return $this->db->single();
+		$return = $this->db->single();
+		$this->db = null;
+		return $return;
 	}
 
 }

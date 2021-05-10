@@ -12,14 +12,18 @@ class User_model {
     {
     	$this->db->query('SELECT * FROM users WHERE username=:username');
     	$this->db->bind('username', $data['username']);
-    	return count($this->db->resultSet());
+        $return = count($this->db->resultSet());
+        $this->db = null;
+    	return $return;
     }
 
     public function checkEmail($data)
     {
     	$this->db->query('SELECT * FROM users WHERE email=:email');
     	$this->db->bind('email', $data['email']);
-    	return count($this->db->resultSet());
+        $return = count($this->db->resultSet());
+        $this->db = null;
+    	return $return;
     }
 
     public function register($data)
@@ -37,8 +41,9 @@ class User_model {
         $this->db->bind('password', $data['password']);
 
         $this->db->execute();
-
-        return $this->db->rowCount();
+        $return = $this->db->rowCount();
+        $this->db = null;
+        return $return;
     }
 
     public function login($data)
@@ -48,15 +53,18 @@ class User_model {
         $result = $this->db->single();
         $passwordInDB = $result['password'];
         if (password_verify($data['password'], $passwordInDB)) {
+            $this->db = null;
             return true;
         }else{
+            $this->db = null;
             return false;
-        }
+        }      
     }
 
     public function isLoggedIn()
     {
         if (isset($_SESSION['UserLoggedIn'])) {
+            $this->db = null;
             header('Location:'.ROOTURL.'/dashboard');
         }
     }
@@ -64,6 +72,7 @@ class User_model {
     public function isLoggedOut()
     {
         if (!isset($_SESSION['UserLoggedIn'])) {
+            $this->db = null;
             header('Location:'.ROOTURL.'/login');
         }
     }
@@ -73,13 +82,17 @@ class User_model {
         $username = $_SESSION['UserLoggedIn'];
         $this->db->query('SELECT * FROM users WHERE username=:username');
         $this->db->bind('username',$username);
-        return $this->db->single();
+        $return = $this->db->single();
+        $this->db = null;
+        return $return;
     }
 
     public function getTop()
     {
         $this->db->query('SELECT * FROM users ORDER BY points DESC LIMIT 10 ');
-        return $this->db->resultSet();
+        $return = $this->db->resultSet();
+        $this->db = null;
+        return $return ;
     }
 
     public function getUserById($id)
@@ -87,14 +100,18 @@ class User_model {
         $this->db->query('SELECT * FROM users WHERE id=:id');
         $this->db->bind('id',$id);
         // $this->db->execute();
-        return $this->db->resultSet();
+        $return = $this->db->resultSet();
+        $this->db = null;
+        return $return;
     }
 
     public function getUserPointById($id)
     {
         $this->db->query('SELECT * FROM users WHERE id=:id');
         $this->db->bind('id',$id);
-        return $this->db->single();
+        $return = $this->db->single();
+        $this->db = null;
+        return $return;
     }
 
     public function updateUserPoint($id,$point,$rank)
@@ -104,7 +121,9 @@ class User_model {
         $this->db->bind('rank',$rank);
         $this->db->bind('id',$id);
         $this->db->execute();
-        return $this->db->rowCount();
+        $return = $this->db->rowCount();
+        $this->db = null;
+        return $return;
 
     }
 
@@ -114,7 +133,9 @@ class User_model {
         $this->db->bind('photo',$photo);
         $this->db->bind('id',$id);
         $this->db->execute();
-        return $this->db->rowCount();
+        $return = $this->db->rowCount();
+        $this->db = null;
+        return $return;
     }
 
 }

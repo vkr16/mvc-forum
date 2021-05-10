@@ -18,8 +18,9 @@ class Notification_model
 		$this->db->bind('sender_photo',$d);
 		$this->db->bind('notif_recipient',$powner);
 		$this->db->execute();
-
-		return $this->db->rowCount();
+		$return = $this->db->rowCount();
+		$this->db = null;
+		return $return;
 	}
 
 	public function notificationLoader($userId)
@@ -27,7 +28,9 @@ class Notification_model
 		$this->db->query('SELECT * FROM notifications WHERE recipient=:myuserid ORDER BY id DESC LIMIT 50');
 		$this->db->bind('myuserid',$userId);	
 		$this->db->execute();
-		return $this->db->resultSet();
+		$return = $this->db->resultSet();
+		$this->db = null;
+		return $return;
 	}
 
 	public function notificationCount($userId)
@@ -35,6 +38,8 @@ class Notification_model
 		$this->db->query('SELECT * FROM notifications WHERE recipient=:myuserid');
 		$this->db->bind('myuserid',$userId);	
 		$this->db->execute();
-		return $this->db->rowCount();
+		$return = $this->db->rowCount();
+		$this->db = null;
+		return $return ;
 	}
 }

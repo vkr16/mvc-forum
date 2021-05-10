@@ -16,7 +16,9 @@ class Search_model
 		$this->db->query('SELECT * FROM posts WHERE content LIKE :searchQuery ORDER BY id DESC');
 
 		$this->db->bind('searchQuery','%'.$searchQuery.'%');
-		return $this->db->resultSet();
+		$return = $this->db->resultSet();
+		$this->db = null;
+		return $return;
 	}
 
 	public function countSearch($searchQuery)
@@ -24,6 +26,8 @@ class Search_model
 		$this->db->query('SELECT * FROM posts WHERE content LIKE :searchQuery');
 		$this->db->bind('searchQuery','%'.$searchQuery.'%');
 		$this->db->execute();
-		return $this->db->rowCount();
+		$return = $this->db->rowCount();
+		$this->db = null;
+		return $return;
 	}
 }
