@@ -13,15 +13,15 @@
 						</div>
 						<?php 
 							if ($data['owner'][0]['username']==$_SESSION['UserLoggedIn']) {
-								 
-								echo '<div class="dropdown" >
-									  <button class="btn bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									  	<i class="fas fa-ellipsis-v text-muted"></i>
-									  </button>
-									  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									    <a class="dropdown-item" id="buttonDelete" href="#" onclick="confirmDelete('.ROOTURL.','.$data['post']['id'].')" href="#">Delete post</a>
-									  </div>
-									</div>';
+								$parameter = ROOTURL.'/post/delete/'.$data['post']['id'];
+							echo '<div class="dropdown" >
+								  <button class="btn bg-transparent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  	<i class="fas fa-ellipsis-v text-muted"></i>
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								    <a class="dropdown-item" id="buttonDelete" href="#" onclick="confirmDelete(\''.$parameter.'\')" href="#">Delete post</a>
+								  </div>
+								</div>';
 							}
 						 ?>
 					</div>
@@ -91,9 +91,10 @@
 	</div>
 	
 	<script type="text/javascript">
-		function confirmDelete(root,i){
+		function confirmDelete(parameter){
 			if (confirm("Are you sure want to delete this post?") == true) {
-				window.location = root+'/post/delete/'+i;
+				window.location = parameter;
+				// console.log(parameter);
 			}
 		}
 	</script>
