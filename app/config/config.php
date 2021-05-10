@@ -3,7 +3,7 @@
 define('ROOTURL', 'http://localhost/mvc-forum');
 
 // DB
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'openforum');
+define('DB_HOST', 'remotemysql.com');
+define('DB_USER', 'aS1bnIADOG');
+define('DB_PASS', 'BqorObW78H');
+define('DB_NAME', 'aS1bnIADOG');
