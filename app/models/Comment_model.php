@@ -97,4 +97,14 @@ class Comment_model
 		$this->db = null;
 		return $return;
 	}
+
+	public function deleteComment($post_id)
+	{
+		$this->db->query('DELETE FROM comments WHERE post_id=:post_id');
+		$this->db->bind('post_id',$post_id);
+		$this->db->execute();
+		$return = $this->db->rowCount();
+		$this->db = null;
+		return $return;
+	}
 }

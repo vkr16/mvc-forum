@@ -66,6 +66,8 @@ class Post extends Controller {
 	public function delete($id)
 	{
 		if ($this->model('Post_model')->deletePost($id) > 0) {
+			$this->model('Comment_model')->deleteComment($id);
+			$this->model('Notification_model')->deleteNotification($id);
 			echo '<script type="text/javascript">
 						console.log("Post has been removed successfully");
 					</script>';

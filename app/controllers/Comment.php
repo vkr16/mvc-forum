@@ -24,7 +24,7 @@ class Comment extends Controller {
 			$powner = $getPostOwner['owner'];
 			// var_dump($lastCommentId);die();
 			if ($powner != $c) {
-				if ($this->model('Notification_model')->saveNotification($lcid,$c_username,$d,$powner) > 0) {
+				if ($this->model('Notification_model')->saveNotification($lcid,$c_username,$d,$powner,$a) > 0) {
 
 					$point = $this->model('User_model')->getUserPointById($c);
 					$newPoint = $point['points'] + 17;
