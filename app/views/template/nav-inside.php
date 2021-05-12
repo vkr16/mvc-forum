@@ -38,8 +38,8 @@
               <div class="col-md-10">
                 <small><strong><?=$data['notifUsername'][$i] ?></strong> </small><br>
                 <small>commented on your post</small>
-                <small class="text-muted">"<?=$data['cmt'][$i]?>"</small><br>
-                <small><i class="far fa-comment-alt"></i>&nbsp;"<?=$data['postContent'][$i]?>"</small><br>
+                <small class="text-muted">"<?=$data['postContent'][$i]?>"</small><br>
+                <small><i class="far fa-comment-alt"></i>&nbsp;"<?=$data['cmt'][$i]?>"</small><br>
               </div>
             </div>
             <div class="col-md-12 d-flex justify-content-end align-items-center">
