@@ -45,11 +45,11 @@ class Post extends Controller {
 			$data['dPost'] = $this->model('Post_model')->getPostById($data['cmts'][0]['post_id']);
 
 			$data['postContent'][$i] = $data['dPost']['content'];
-			$data['postContent'][$i] = mb_strimwidth($data['postContent'][$i], 0,50,"...");
+			$data['postContent'][$i] = mb_strimwidth($data['postContent'][$i], 0,25,"...");
 			$data['pstId'][$i] = $data['dPost']['id'];
 			// var_dump($data['postContent'][$i]);echo "<br><br>";
 			$data['cmt'][$i] = $data['cmts'][0]['content'];
-			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,25,"...");
+			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,50,"...");
 			$data['notifPhoto'][$i] = $data['ntf'][$i]['sender_photo'];
 			$data['notifUsername'][$i] = $data['ntf'][$i]['sender_username'];
 		}
