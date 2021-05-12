@@ -6,7 +6,7 @@
 				</div>
 				<div class="col-md-8">
 					<h5 class="text-primary"><?= $_SESSION['UserLoggedIn']?></h5><hr>
-					<h6 class="card-subtitle text-muted">Rank : <span class="text-info"><?=$data['user']['rank']?></span></h6>
+					<h6 class="card-subtitle text-muted">Rank : <span class="text-info"><?=$data['user']['peringkat']?></span></h6>
 					<small>User points : <?=$data['user']['points']?> pts</small>
 				</div>
 			</div>

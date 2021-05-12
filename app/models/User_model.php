@@ -116,9 +116,9 @@ class User_model {
 
     public function updateUserPoint($id,$point,$rank)
     {
-        $this->db->query('UPDATE users SET points =:points , rank=:rank WHERE id=:id');
+        $this->db->query('UPDATE users SET points =:points , peringkat=:peringkat WHERE id=:id');
         $this->db->bind('points',$point);
-        $this->db->bind('rank',$rank);
+        $this->db->bind('peringkat',$rank);
         $this->db->bind('id',$id);
         $this->db->execute();
         $return = $this->db->rowCount();

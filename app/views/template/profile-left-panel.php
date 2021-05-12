@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<td class="text-left"><small>Rank</small></td>
-						<td class="text-right text-info"><small><?=$data['user']['rank']?></small></td>
+						<td class="text-right text-info"><small><?=$data['user']['peringkat']?></small></td>
 					</tr>
 					<tr>
 						<td class="text-left"><small>Points</small></td>
