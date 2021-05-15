@@ -37,6 +37,9 @@ class Search extends Controller {
 			$data['cmt'][$i] = mb_strimwidth($data['cmt'][$i], 0,50,"...");
 			$data['notifPhoto'][$i] = $data['ntf'][$i]['sender_photo'];
 			$data['notifUsername'][$i] = $data['ntf'][$i]['sender_username'];
+			$convertedTime = $this->model('Post_model')->convertTime($data['ntf'][$i]['time_notified']);
+			$data['date'][$i] = $convertedTime['date'];
+			$data['hour'][$i] = $convertedTime['hour'];
 		}
 		
 		#load notif end
