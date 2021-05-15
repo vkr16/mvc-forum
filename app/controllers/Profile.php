@@ -75,7 +75,7 @@ class Profile extends Controller {
 	{
 		 if(!empty($_FILES['uploaded_file']))
 		  {
-		    $path = $_SERVER['DOCUMENT_ROOT']."/mvc-forum/public/assets/img/profile-img/";
+		    $path = $_SERVER['DOCUMENT_ROOT']."/public/assets/img/profile-img/";
 		    $path2 = $_FILES['uploaded_file']['name'];
 		    $ext = pathinfo($path2, PATHINFO_EXTENSION);
 		    // var_dump($ext);die();
